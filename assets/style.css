@@ -1,0 +1,81 @@
+:root {
+  --main-color: #2f4156;
+  --accent-color: #567c8d;
+  --bg-color: #ffffff;
+  --text-color: #2f4156;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;       /* pion */
+  justify-content: center;   /* poziom */
+}
+
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  padding: 2rem 3rem;
+  max-width: 500px;
+  text-align: center;
+  margin-top: 50%;
+}
+.button-container{
+    width: 100%;
+    justify-content: space-between;
+}
+.button {
+  padding: 6pt 12pt;
+  background-color: var(--accent-color);
+  border-radius: 8px;
+  transition: all 0.25s ease;
+}
+.button .q-btn__content {
+  position: relative;
+  z-index: 2;
+  color: white !important;
+  font-weight: 600;
+  transition: color 0.4s ease;
+}
+/* ← To jest faktyczny tekst przycisku */
+.button .q-btn__content {
+  color: white !important;   /* wymusza biały */
+  font-weight: 600;
+  transition: color 0.4s ease;
+}
+
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: var(--main-color);
+  transition: width 0.8s ease;
+  z-index: 1;
+}
+.button:hover::before {
+  width: 100%;
+}
+
+.q-btn.text-black,
+.q-btn.text-grey,
+.q-btn.text-primary {
+  color: inherit !important;
+}
