@@ -63,7 +63,12 @@ with ui.card().classes('main-card'):
         label_x = ui.label("x").classes('criterion-box')
         label_y = ui.label('Y').classes('criterion-box')
 
-    ui.label('Użyj suwaka, aby określić, jak bardzo jest ważniejsze').classes('introduction')
+        direction = ui.radio(
+            ['Lewe kryterium ważniejsze', 'Równa ważność', 'Prawe kryterium ważniejsze'],
+            value='Równa ważność'
+        ).classes('direction-radio')
+
+    ui.label('Wskaż, które kryterium jest ważniejsze, a następnie określ siłę przewagi').classes('introduction')
     value_badge = ui.label('5').classes('slider-value')
 
     slider = ui.slider(min=1, max=9, value=5, step=1).classes('custom-slider')
@@ -84,6 +89,29 @@ with ui.card().classes('main-card'):
         #!!!! tutaj wymuszamy kolor biały, bo ma niebieski po jakiś dziwnych klasach - sorry
         ui.button('WSTECZ', on_click=go_prev).props('flat unelevated no-caps').classes('button back').style('color: white !important')
         ui.button('DALEJ', on_click=go_next).props('flat unelevated no-caps').classes('button next').style('color: white !important')
+
+    with ui.card().classes('saaty-table'):
+        ui.label('opis skali:')
+        with ui.element('div').classes('saaty-row'):
+            ui.label('1').classes('saaty-number')
+            ui.label('równa ważność').classes('saaty-desc')
+
+        with ui.element('div').classes('saaty-row'):
+            ui.label('3').classes('saaty-number')
+            ui.label('umiarkowana przewaga').classes('saaty-desc')
+
+        with ui.element('div').classes('saaty-row'):
+            ui.label('5').classes('saaty-number')
+            ui.label('silna przewaga').classes('saaty-desc')
+
+        with ui.element('div').classes('saaty-row'):
+            ui.label('7').classes('saaty-number')
+            ui.label('bardzo silna przewaga').classes('saaty-desc')
+
+        with ui.element('div').classes('saaty-row'):
+            ui.label('9').classes('saaty-number')
+            ui.label('ekstremalna przewaga').classes('saaty-desc')
+
 
 set_ui_from_state()
 

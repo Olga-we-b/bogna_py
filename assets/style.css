@@ -11,6 +11,8 @@ body{
   display:flex;align-items:center;justify-content:center;
   font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color:var(--ink);
+  padding-top: 2em;
+  padding-top: 2em;
 }
 
 .main-card{
@@ -22,6 +24,7 @@ body{
   text-align:center;
   display: flex;
   justify-content: center;
+  border: 2px solid black;
 }
 
 .title{font-size:28px;font-weight:800;margin:6px 0 2px}
@@ -40,6 +43,15 @@ justify-content:space-between;
   min-width:120px;
   display:inline-block;
   text-align:center;
+}
+
+.direction-radio {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    width: 100%;
+    color: #123b63;
+    font-size: 14px;
+    display: flex;
 }
 
 .introduction{
@@ -93,3 +105,26 @@ color:white !important;
 
 .button:hover{filter:brightness(.96)}
 
+.saaty-table {
+    width: 100%;
+    gap: 8px 16px;
+
+}
+
+.saaty-row {
+display: flex;
+align-items: center;
+}
+
+.saaty-number {
+    font-size: 16px;
+    font-weight: 900;
+    color: #4bb8b1;
+    text-align: center;
+    padding-right: 1em;
+}
+
+.saaty-desc {
+    font-size: 13px;
+    color: #666;
+}
