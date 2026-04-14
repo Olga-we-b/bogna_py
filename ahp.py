@@ -52,7 +52,17 @@ def go_prev():
         set_ui_from_state()
 
 def go_next():
-    answers[pairs[state['index']]] = state['value']
+    i, j = pairs[state['index']]
+
+    if direction.value == 'Lewe kryterium':
+        value = state['value']
+    elif direction.value == 'Prawe kryterium':
+        value = 1 / state['value']
+    else:
+        value = 1
+
+    answers[(i, j)] = value
+    print(answers)
     if state['index'] < len(pairs) - 1:
         state['index'] += 1
         state['value'] = answers.get(pairs[state['index']], 2)
@@ -87,8 +97,8 @@ with ui.card().classes('main-card'):
         label_y = ui.label('Y').classes('criterion-box')
 
         direction = ui.radio(
-            ['Lewe kryterium ważniejsze', 'Równa ważność', 'Prawe kryterium ważniejsze'],
-            value='Lewe kryterium ważniejsze',
+            ['Lewe kryterium', 'Równa ważność', 'Prawe kryterium'],
+            value='Lewe kryterium',
             on_change = on_direction_change
         ).classes('direction-radio')
 
