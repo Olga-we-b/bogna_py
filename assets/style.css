@@ -16,7 +16,7 @@ body{
 }
 
 .main-card{
-  width:30vw;
+  width:60vw;
   background:#fff;
   border-radius:24px;
   padding:20px 20px 24px;
@@ -31,18 +31,24 @@ body{
 .step{opacity:.75;margin-bottom:8px}
 
 .criteria-row{
+display: flex;
 justify-content:space-between;
  width: 100%;
 }
 .criterion-box{
-  background:#c9e6e3;
-  color:var(--ink);
-  font-weight:800;
+  background:var(--main-color);
+  color:white;
+  font-weight:bold;
+  font-size: 1.5em;
   padding:10px 18px;
   border-radius:10px;
-  min-width:120px;
-  display:inline-block;
-  text-align:center;
+  min-width:220px;
+  min-height:60px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;      /* pionowo */
+  justify-content: center;  /* poziomo */
+  text-align: center;
 }
 
 .direction-radio {
@@ -52,6 +58,7 @@ justify-content:space-between;
     color: #123b63;
     font-size: 14px;
     display: flex;
+    justify-content: space-between;
 }
 
 .introduction{
