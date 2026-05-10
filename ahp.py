@@ -48,9 +48,29 @@ def in_slider_change(e):
 def go_prev():
     if state['index'] > 0:
         state['index'] -= 1
-        state['value'] = answers.get(pairs[state['index']], 2)
-        set_ui_from_state()
 
+        i, j = pairs[state['index']]
+        saved_value = answers.get((i, j))
+
+        if saved_value is not None:
+
+            if saved_value == 1:
+                direction.value = 'Równa ważność'
+                state['value'] = 1
+
+            elif saved_value < 1:
+                direction.value = 'Prawe kryterium'
+                state['value'] = int(1 / saved_value)
+
+            else:
+                direction.value = 'Lewe kryterium'
+                state['value'] = int(saved_value)
+
+        else:
+            direction.value = 'Lewe kryterium'
+            state['value'] = 2
+
+        set_ui_from_state()
 def go_next():
     i, j = pairs[state['index']]
 
@@ -65,7 +85,13 @@ def go_next():
     print(answers)
     if state['index'] < len(pairs) - 1:
         state['index'] += 1
-        state['value'] = answers.get(pairs[state['index']], 2)
+
+        direction.value = 'Lewe kryterium'
+        state['value'] = 2
+
+        slider.enable()
+
+
         set_ui_from_state()
     else:
         ui.notify('Koniec pytań 🎉')
@@ -106,9 +132,7 @@ with ui.card().classes('main-card'):
     value_badge = ui.label('25').classes('slider-value')
 
     slider = ui.slider(min=2, max=9, value=2, step=1).classes('custom-slider')
-    def update_badge(e):
-        value_badge.set_text(e.value)
-    slider.on_value_change(update_badge)
+    slider.on_value_change(in_slider_change)
     with ui.row().classes('slider-labels'):
         ui.label('2')
         ui.label('3')
