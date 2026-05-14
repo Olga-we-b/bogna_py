@@ -1,0 +1,15 @@
+﻿AHP comparison matrix 
+,Rodzaj bólu,Intensywność bólu,Ogólna elastyczność ciała
+Rodzaj bólu,1.0,0.5,1.0
+Intensywność bólu,2.0,1.0,2.0
+Ogólna elastyczność ciała,1.0,0.5,1.0
+
+
+Weightscriterion,weight
+Rodzaj bólu,0.14285714285714288
+Intensywność bólu,0.28571428571428564
+Ogólna elastyczność ciała,0.5714285714285715
+
+criterion;weight
+CR;0.0
+
